@@ -87,11 +87,9 @@ class GestionTienda:
     def __init__(self, root):
         self.tienda = Tienda(None)
 
-        # Crear pestañas
         self.notebook = ttk.Notebook(root)
         self.notebook.pack(fill="both", expand=True)
 
-        # Pestaña de productos
         self.producto_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.producto_tab, text="Productos")
 
@@ -105,7 +103,6 @@ class GestionTienda:
         self.agregar_producto_button = tk.Button(self.producto_frame, text="Agregar Producto", command=self.agregar_producto)
         self.agregar_producto_button.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
 
-        # Pestaña de clientes
         self.cliente_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.cliente_tab, text="Clientes")
 
@@ -119,7 +116,6 @@ class GestionTienda:
         self.agregar_cliente_button = tk.Button(self.cliente_frame, text="Agregar Cliente", command=self.agregar_cliente)
         self.agregar_cliente_button.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
 
-        # Pestaña de órdenes
         self.orden_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.orden_tab, text="Órdenes")
 
@@ -131,17 +127,14 @@ class GestionTienda:
         self.agregar_orden_button = tk.Button(self.orden_frame, text="Crear Orden", command=self.crear_orden)
         self.agregar_orden_button.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
-        # Pestaña de información
         self.info_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.info_tab, text="Información")
 
         self.info_text = tk.Text(self.info_tab, height=20, width=50)
         self.info_text.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Asociar info_text con tienda
         self.tienda.info_text = self.info_text
 
-        # Botón para mostrar productos
         self.mostrar_productos_button = tk.Button(self.info_tab, text="Mostrar Productos", command=self.mostrar_productos)
         self.mostrar_productos_button.pack(pady=5)
 
